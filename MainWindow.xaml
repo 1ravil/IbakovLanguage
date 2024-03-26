@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Языковая школа" Height="450" Width="800" FontFamily="Comic Sans MC" Icon="Клиенты/school_logo.ico">
+        Title="Языковая школа" Height="800" Width="1200"  MinHeight="800" MinWidth="1300" FontFamily="Comic Sans MC" Icon="Клиенты/school_logo.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="94*"/>

@@ -9,26 +9,79 @@
       Title="LanguagePage" FontFamily="Comic Sans MС">
 
     <Grid>
-        
-        <ListView Name="LanguageListView">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <ListView Name="LanguageListView"  Grid.ColumnSpan="3" Grid.Row="0" Grid.RowSpan="2">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
-                            <ColumnDefinition/>
+                            <ColumnDefinition Width="700"/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <Image Width="100" Grid.Column="0" Stretch="UniformToFill" HorizontalAlignment="Center" Grid.RowSpan="7">
+
+
+
+                        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
+                            <TextBlock Text="{Binding ID}" FontWeight="Bold"/>
+                            <TextBlock Text=" " FontWeight="Bold"/>
+                            <TextBlock Text="{Binding FirstName}" FontWeight="Bold"/>
+                            <TextBlock Text=" " FontWeight="Bold"/>
+                            <TextBlock Text="{Binding LastName}" FontWeight="Bold"/>
+                            <TextBlock Text=" " FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Patronymic}" FontWeight="Bold"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+                            <TextBlock Text="Пол: "/>
+                            <TextBlock Text="{Binding GenderCode}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
+                            <TextBlock Text="Дата рождения: "/>
+                            <TextBlock Text="{Binding Birthday, StringFormat=dd.mm.yyyy}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
+                            <TextBlock Text="Телефон: "/>
+                            <TextBlock Text="{Binding Phone}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="1">
+                            <TextBlock Text="Электронная почта: "/>
+                            <TextBlock Text="{Binding Email}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="1">
+                            <TextBlock Text="Дата регистрации: "/>
+                            <TextBlock Text="{Binding RegistrationDate, StringFormat=dd.mm.yyyy}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Grid.Row="6" Grid.Column="1">
+                            <TextBlock Text="Дата последнего посещения: "/>
+                            <TextBlock Text="{Binding LastVisitDate}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Grid.Row="7" Grid.Column="1">
+                            <TextBlock Text="Количество посещений: "/>
+                            <TextBlock Text="{Binding VisitCount}"/>
+                        </StackPanel>
+
+                        <Image Width="200" Grid.RowSpan="8" Grid.Column="0" HorizontalAlignment="Center">
                             <Image.Source>
                                 <Binding Path="PhotoPath">
                                     <Binding.TargetNullValue>
@@ -41,7 +94,7 @@
                         </Image>
                         
                         
-                        <TextBlock Text="Имя: " Grid.Column="1" Grid.Row="0"/>
+                       <!--<TextBlock Text="Имя: " Grid.Column="1" Grid.Row="0"/>
                         <TextBlock Text="Фамилия: " Grid.Column="1" Grid.Row="1"/>
                         <TextBlock Text="Отчество: " Grid.Column="1" Grid.Row="2"/>
                         <TextBlock Text="Пол:" Grid.Column="1" Grid.Row="3"/>
@@ -56,7 +109,7 @@
                         <TextBlock Text="{Binding GenderCode}"  Grid.Column="2" Grid.Row="3"/>
                         <TextBlock Text="{Binding Birthday}" Grid.Column="2" Grid.Row="4"/>
                         <TextBlock Text="{Binding Phone}" Grid.Column="2" Grid.Row="5" />
-                        <TextBlock Text="{Binding RegistrationDate}"  Grid.Column="2" Grid.Row="6"/>
+                        <TextBlock Text="{Binding RegistrationDate}"  Grid.Column="2" Grid.Row="6"/>-->
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
