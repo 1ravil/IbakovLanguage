@@ -80,6 +80,8 @@
                             <TextBlock Text="Количество посещений: "/>
                             <TextBlock Text="{Binding VisitCount}"/>
                         </StackPanel>
+                        
+                        <Button Name="BtnDelete" Content="Удалить" Click="BtnDelete_Click" Grid.Column="3" Grid.Row="7"/>
 
                         <Image Width="200" Grid.RowSpan="8" Grid.Column="0" HorizontalAlignment="Center">
                             <Image.Source>
@@ -93,26 +95,30 @@
                             </Image.Source>                            
                         </Image>
                         
-                        
-                       <!--<TextBlock Text="Имя: " Grid.Column="1" Grid.Row="0"/>
-                        <TextBlock Text="Фамилия: " Grid.Column="1" Grid.Row="1"/>
-                        <TextBlock Text="Отчество: " Grid.Column="1" Grid.Row="2"/>
-                        <TextBlock Text="Пол:" Grid.Column="1" Grid.Row="3"/>
-                        <TextBlock Text="Дата рождения:" Grid.Column="1" Grid.Row="4"/>
-                        <TextBlock Text="Номер телефона:" Grid.Column="1" Grid.Row="5"/>
-                        <TextBlock Text="Дата регистрации:" Grid.Column="1" Grid.Row="6"/>
-                        
-                        
-                        <TextBlock Text="{Binding FirstName}" Grid.Column="2" Grid.Row="0"/>
-                        <TextBlock Text="{Binding LastName}"  Grid.Column="2" Grid.Row="1"/>
-                        <TextBlock Text="{Binding Patronymic}"  Grid.Column="2" Grid.Row="2"/>
-                        <TextBlock Text="{Binding GenderCode}"  Grid.Column="2" Grid.Row="3"/>
-                        <TextBlock Text="{Binding Birthday}" Grid.Column="2" Grid.Row="4"/>
-                        <TextBlock Text="{Binding Phone}" Grid.Column="2" Grid.Row="5" />
-                        <TextBlock Text="{Binding RegistrationDate}"  Grid.Column="2" Grid.Row="6"/>-->
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2" Grid.ColumnSpan="3">
+            <TextBlock Text="Выводить по "/>
+            <ComboBox Name="strCount" Width="100" SelectionChanged="strCount_SelectionChanged">
+                <TextBlock>10</TextBlock>
+                <TextBlock>50</TextBlock>
+                <TextBlock>200</TextBlock>
+                <TextBlock>Все</TextBlock>
+            </ComboBox>
+            <TextBlock Name="TBCount" FontSize="20" VerticalAlignment="Center" Height="25"></TextBlock>
+            <TextBlock Text=" из " VerticalAlignment="Center"/>
+            <TextBlock Name="TBAllRecords" FontSize="20" VerticalAlignment="Center" Height="25"></TextBlock>
+            <Button Name="LeftDirButton" Content="&lt;" Width="20" Height="25" Click="LeftDirButton_Click"></Button>
+            <ListBox FontSize="20" Name="PageListBox" MouseUp="PageListBox_MouseUp">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+            <Button Name="RightDirButton" Content="&gt;" Width="20" Height="25" Click="RightDirButton_Click"/>
+        </StackPanel>
     </Grid>
 </Page>
