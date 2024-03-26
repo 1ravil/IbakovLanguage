@@ -32,7 +32,7 @@ namespace WpfApp1
         public string GenderCode { get; set; }
         public string Phone { get; set; }
         public string PhotoPath { get; set; }
-        public Nullable<System.DateTime> Birthday { get; set; }
+        public System.DateTime Birthday { get; set; }
         public string Email { get; set; }
         public System.DateTime RegistrationDate { get; set; }
     
@@ -49,12 +49,36 @@ namespace WpfApp1
             }
         }
 
-        public System.DateTime LastVisitDate
+        public string LastVisitDate
         {
             get
             {
-                return IbakovLanguageEntities.GetContext().ClientService.Where(x => x.ClientID == this.ID).Max(p => p.StartTime);
+                if (VisitCount == 0)
+                {
+                    return "Нет";
+                }
+                else
+                {
+                    return IbakovLanguageEntities.GetContext().ClientService.Where(x => x.ClientID == this.ID).Max(p => p.StartTime).ToString();
+                }
+
             }
         }
+        public string BirthdayFormat
+        {
+            get
+            {
+                return Birthday.ToShortDateString();
+            }
+        }
+        public string RegistrationFormat
+        {
+            get
+            {
+                return RegistrationDate.ToShortDateString();
+            }
+        }
+
+        
     }
 }

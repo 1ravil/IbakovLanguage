@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:WpfApp1"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="LanguagePage" FontFamily="Comic Sans MС">
+      Title="LanguagePage" FontFamily="Comic Sans MS">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -58,7 +58,7 @@
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
                             <TextBlock Text="Дата рождения: "/>
-                            <TextBlock Text="{Binding Birthday, StringFormat=dd.mm.yyyy}"/>
+                            <TextBlock Text="{Binding BirthdayFormat}"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
                             <TextBlock Text="Телефон: "/>
@@ -70,7 +70,7 @@
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="1">
                             <TextBlock Text="Дата регистрации: "/>
-                            <TextBlock Text="{Binding RegistrationDate, StringFormat=dd.mm.yyyy}"/>
+                            <TextBlock Text="{Binding RegistrationFormat}"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Grid.Row="6" Grid.Column="1">
                             <TextBlock Text="Дата последнего посещения: "/>

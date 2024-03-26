@@ -13,7 +13,7 @@
             <RowDefinition Height="25*"/>
         </Grid.RowDefinitions>
         <Image Source="Клиенты/school_logo.png" HorizontalAlignment="Left"/>
-        <TextBlock Text="Языковая школа" FontSize ="30" HorizontalAlignment="Center" VerticalAlignment="Center"/> 
+        <TextBlock Text="Ибаков лангуаге" FontSize ="30" HorizontalAlignment="Center" VerticalAlignment="Center"/> 
         <Frame Grid.Row="1" Name="MainFrame" Margin="0,26,0,0"/>
     </Grid>
 </Window>
