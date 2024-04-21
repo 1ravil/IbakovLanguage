@@ -205,5 +205,20 @@ namespace WpfApp1
                 MessageBox.Show("Невозможно выполнить удаление, так как клиент посещал школу!");
             }
         }
+
+        private void TBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Update();
+        }
+
+        private void FiltrBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Update();
+        }
+
+        private void SortBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Update();
+        }
     }
 }
