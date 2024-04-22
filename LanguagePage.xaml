@@ -37,7 +37,7 @@
             <ComboBox Name="SortBox" Width="275" SelectionChanged="SortBox_SelectionChanged">
                 <TextBlock>По умолчанию</TextBlock>
                 <TextBlock>От А до Я</TextBlock>
-                <!--<TextBlock>по дате последнего посещения</TextBlock>-->
+                <!--<TextBlock>по дате последнего посещеия</TextBlock>-->
                 <TextBlock>по количеству посещений</TextBlock>
             </ComboBox>
         </StackPanel>
