@@ -41,6 +41,24 @@ namespace WpfApp1
         public virtual ICollection<ClientService> ClientService { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tag> Tag { get; set; }
+        public string BirthdayFormat
+        {
+            get
+            {
+
+                return Birthday.ToShortDateString();
+            }
+        }
+
+        public string RegistrationDateFormat
+        {
+            get
+            {
+
+                return RegistrationDate.ToShortDateString();
+            }
+        }
+
         public int VisitCount
         {
             get
@@ -54,31 +72,11 @@ namespace WpfApp1
             get
             {
                 if (VisitCount == 0)
-                {
-                    return "Нет";
-                }
+                    return "нет посещений";
                 else
-                {
                     return IbakovLanguageEntities.GetContext().ClientService.Where(x => x.ClientID == this.ID).Max(p => p.StartTime).ToString();
-                }
-
-            }
-        }
-        public string BirthdayFormat
-        {
-            get
-            {
-                return Birthday.ToShortDateString();
-            }
-        }
-        public string RegistrationFormat
-        {
-            get
-            {
-                return RegistrationDate.ToShortDateString();
             }
         }
 
-        
     }
 }

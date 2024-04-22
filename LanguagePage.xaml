@@ -91,7 +91,7 @@
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="1">
                             <TextBlock Text="Дата регистрации: "/>
-                            <TextBlock Text="{Binding RegistrationFormat}"/>
+                            <TextBlock Text="{Binding RegistrationDateFormat}"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Grid.Row="6" Grid.Column="1">
                             <TextBlock Text="Дата последнего посещения: "/>
@@ -101,8 +101,11 @@
                             <TextBlock Text="Количество посещений: "/>
                             <TextBlock Text="{Binding VisitCount}"/>
                         </StackPanel>
-                        
-                        <Button Name="BtnDelete" Content="Удалить" Click="BtnDelete_Click" Grid.Column="3" Grid.Row="7"/>
+                        <StackPanel Orientation="Horizontal" Grid.Column="3" Grid.Row="7">
+                            <Button Name="BtnDelete" Content="Удалить" Click="BtnDelete_Click"/>
+                            <Button Name="BtnAddEdit" Content="Редактировать" Click="BtnAddEdit_Click"/>
+                        </StackPanel>
+
 
                         <Image Width="200" Grid.RowSpan="8" Grid.Column="0" HorizontalAlignment="Center">
                             <Image.Source>
@@ -120,6 +123,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <Button Content="Добавить" Name="AddClient" Click="AddClient_Click" Grid.Row="2" Grid.Column="0"/>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2" Grid.ColumnSpan="3">
             <TextBlock Text="Выводить по "/>
             <ComboBox Name="strCount" Width="100" SelectionChanged="strCount_SelectionChanged">

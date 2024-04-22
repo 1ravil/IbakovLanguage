@@ -36,14 +36,43 @@ namespace WpfApp1
 
             LanguageListView.ItemsSource=currentProduct;
 
+
+            LanguageListView.ItemsSource = currentProduct;
+            FiltrBox.SelectedIndex = 0;
             strCount.SelectedIndex = 0;
+            SortBox.SelectedIndex = 0;
             TBAllRecords.Text = IbakovLanguageEntities.GetContext().Client.ToList().Count().ToString();
             Update();
         }
 
         public void Update()
         {
+
             var currentClient = IbakovLanguageEntities.GetContext().Client.ToList();
+
+            if (SortBox.SelectedIndex == 1)
+            {
+                currentClient = currentClient.OrderBy(p => p.FirstName).ToList();
+            }
+            else if (SortBox.SelectedIndex == 2)
+            {
+                currentClient = currentClient.OrderByDescending(p => DateTime.Parse((p.LastVisitDate.ToString() != "нет посещений") ? p.LastVisitDate.ToString() : "01.01.1991 09:00")).ToList();
+            }
+            else if (SortBox.SelectedIndex == 3)
+            {
+                currentClient = currentClient.OrderBy(p => p.VisitCount).ToList();
+            }
+
+            if (FiltrBox.SelectedIndex == 1)
+            {
+                currentClient = currentClient.Where(p => p.GenderCode == "ж").ToList();
+            }
+            else if (FiltrBox.SelectedIndex == 2)
+            {
+                currentClient = currentClient.Where(p => p.GenderCode == "м").ToList();
+            }
+
+            currentClient = currentClient.Where(p => p.LastName.ToLower().Contains(TBoxSearch.Text.ToLower()) || p.FirstName.ToLower().Contains(TBoxSearch.Text.ToLower()) || p.Patronymic.ToLower().Contains(TBoxSearch.Text.ToLower()) || p.Email.ToLower().Contains(TBoxSearch.Text.ToLower()) || p.Phone.Replace("+", "").Replace(" ", "").Replace("-", "").Replace("(", "").Replace(")", "").ToLower().Contains(TBoxSearch.Text.Replace("+", "").Replace(" ", "").Replace("-", "").Replace("(", "").Replace(")", "").ToLower())).ToList();
 
             TBAllRecords.Text = IbakovLanguageEntities.GetContext().Client.ToList().Count().ToString();
             TBCount.Text = currentClient.Count().ToString();
@@ -152,7 +181,7 @@ namespace WpfApp1
 
                     //min = CurrentPage * CountInPage + CountInPage < CountRecords ? CurrentPage * CountInPage + CountInPage : CountRecords;
                     //TBCount.Text = min.ToString();
-                    TBAllRecords.Text = CountRecords.ToString();
+                    //TBAllRecords.Text = CountRecords.ToString();
 
                     LanguageListView.ItemsSource = CurrentPageList;
 
@@ -218,6 +247,17 @@ namespace WpfApp1
 
         private void SortBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            Update();
+        }
+        private void BtnAddEdit_Click(object sender, RoutedEventArgs e)
+        {
+            new AddEditWindow((sender as Button).DataContext as Client).ShowDialog();
+            Update();
+        }
+
+        private void AddClient_Click(object sender, RoutedEventArgs e)
+        {
+            new AddEditWindow(null).ShowDialog();
             Update();
         }
     }
