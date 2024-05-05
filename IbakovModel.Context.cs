@@ -16,12 +16,15 @@ namespace WpfApp1
     public partial class IbakovLanguageEntities : DbContext
     {
 
-        private static IbakovLanguageEntities _context;
+        public static IbakovLanguageEntities _context;
 
         public static IbakovLanguageEntities GetContext()
         {
-            if(_context== null)
+            if (_context == null)
+            {
                 _context = new IbakovLanguageEntities();
+            }
+
             return _context;
         }
         public IbakovLanguageEntities()

@@ -281,6 +281,9 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Клиенты\school_logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="IbakovModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>IbakovModel.edmx</DependentUpon>
@@ -291,7 +294,6 @@
       <DependentUpon>IbakovModel.edmx</DependentUpon>
       <LastGenOutput>IbakovModel.cs</LastGenOutput>
     </Content>
-    <Resource Include="Клиенты\school_logo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
